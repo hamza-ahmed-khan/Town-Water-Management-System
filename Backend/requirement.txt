@@ -1,0 +1,11 @@
+https://www.python.org/downloads/
+from above install python latest version , while starting setup, chose customize installation and check mark 'pip'.
+
+then
+run on cmd -> py -m pip install flask
+
+py -m flask --version
+
+pip install flask-restful
+ 
+
