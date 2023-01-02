@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
 
 // components
@@ -10,12 +10,24 @@ import Login from "../pages/login";
 
 // context
 import { useUserState } from "../context/UserContext";
+import { useState } from "react";
 
 export default function App() {
   // global
   var { isAuthenticated } = useUserState();
+  const [data, setData] = useState();
+  useEffect(() => {
+    fetch("http://127.0.0.1:5000/data").then(response =>
+      response.json().then(mydata =>{
+        console.log(mydata)
+      })
+    );
+
+  },[]);
+
 
   return (
+    
     <HashRouter>
       <Switch>
         <Route exact path="/" render={() => <Redirect to="/app/dashboard" />} />

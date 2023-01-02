@@ -7,7 +7,7 @@ import {
 import {
   Home as HomeIcon,
   NotificationsNone as NotificationsIcon,
-  FormatSize as TypographyIcon,
+  MapRounded as MapIcon,
   FilterNone as UIElementsIcon,
   BorderAll as TableIcon,
   QuestionAnswer as SupportIcon,

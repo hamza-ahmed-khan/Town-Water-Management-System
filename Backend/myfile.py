@@ -6,9 +6,12 @@ This is a temporary script file.
 """
 from flask import Flask
 from flask_restful import Resource , Api, reqparse, abort
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 api = Api(app)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 data= {
     1: {"mykey": "myvalue", "description": "my first object"},

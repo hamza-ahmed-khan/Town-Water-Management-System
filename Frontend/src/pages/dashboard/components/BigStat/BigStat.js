@@ -4,13 +4,14 @@ import { ArrowForward as ArrowForwardIcon } from "@material-ui/icons";
 import { useTheme } from "@material-ui/styles";
 import { BarChart, Bar } from "recharts";
 import classnames from "classnames";
-
 // styles
 import useStyles from "./styles";
 
 // components
 import Widget from "../../../../components/Widget";
 import { Typography } from "../../../../components/Wrappers";
+
+
 
 export default function BigStat(props) {
   var { product, total, color, registrations, bounce } = props;

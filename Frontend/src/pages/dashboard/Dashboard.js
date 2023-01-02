@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Sensordata } from "./components/BigStat/BigStat";
 import {
   Grid,
   LinearProgress,
@@ -46,6 +47,7 @@ export default function Dashboard(props) {
   var classes = useStyles();
   var theme = useTheme();
 
+
   // local
   var [mainChartState, setMainChartState] = useState("monthly");
 
@@ -56,6 +58,7 @@ export default function Dashboard(props) {
       size="medium"
       color="secondary"
     >
+
         Latest Reports
     </Button>} />
       <Grid container spacing={4}>
