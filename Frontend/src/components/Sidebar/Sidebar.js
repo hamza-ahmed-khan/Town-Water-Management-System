@@ -3,13 +3,7 @@ import { Drawer, IconButton, List } from "@material-ui/core";
 import {
   Home as HomeIcon,
   Dashboard as DashboardIcon,
-  NotificationsNone as NotificationsIcon,
-  FormatSize as TypographyIcon,
   FilterNone as UIElementsIcon,
-  BorderAll as TableIcon,
-  QuestionAnswer as SupportIcon,
-  LibraryBooks as LibraryIcon,
-  HelpOutline as FAQIcon,
   ControlCamera as ControlCenter,
   ArrowBack as ArrowBackIcon,
   AccessAlarm as AlarmIcon,
@@ -27,8 +21,6 @@ import useStyles from "./styles";
 
 // components
 import SidebarLink from "./components/SidebarLink/SidebarLink";
-import Dot from "./components/Dot";
-
 // context
 import {
   useLayoutState,
