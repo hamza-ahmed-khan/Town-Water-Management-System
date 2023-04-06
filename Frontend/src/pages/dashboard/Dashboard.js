@@ -37,10 +37,10 @@ import BigStat from "./components/BigStat/BigStat";
 
 const mainChartData = getMainChartData();
 const PieChartData = [
-  { name: "Group A", value: 400, color: "primary" },
-  { name: "Group B", value: 300, color: "secondary" },
-  { name: "Group C", value: 300, color: "warning" },
-  { name: "Group D", value: 200, color: "success" },
+  { name: "Block A", value: 400, color: "primary" },
+  { name: "Block B", value: 300, color: "secondary" },
+  { name: "Block C", value: 300, color: "warning" },
+  { name: "Block D", value: 200, color: "success" },
 ];
 
 export default function Dashboard(props) {
@@ -64,7 +64,7 @@ export default function Dashboard(props) {
       <Grid container spacing={4}>
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Widget
-            title="Visits Today"
+            title="Town Management"
             upperTitle
             bodyClass={classes.fullHeightBody}
             className={classes.card}
@@ -113,7 +113,7 @@ export default function Dashboard(props) {
               </Grid>
               <Grid item xs={4}>
                 <Typography color="text" colorBrightness="secondary" noWrap>
-                  Sign Out
+                  Non-Active
                 </Typography>
                 <Typography size="md">32</Typography>
               </Grid>
@@ -128,7 +128,7 @@ export default function Dashboard(props) {
         </Grid>
         <Grid item lg={3} md={8} sm={6} xs={12}>
           <Widget
-            title="App Performance"
+            title="System Performance"
             upperTitle
             className={classes.card}
             bodyClass={classes.fullHeightBody}
@@ -141,7 +141,7 @@ export default function Dashboard(props) {
                   colorBrightness="secondary"
                   className={classes.legendElementText}
                 >
-                  Integration
+                  Water Level Sensor
                 </Typography>
               </div>
               <div className={classes.legendElement}>
@@ -151,7 +151,7 @@ export default function Dashboard(props) {
                   colorBrightness="secondary"
                   className={classes.legendElementText}
                 >
-                  SDK
+                  Flow Meter
                 </Typography>
               </div>
             </div>
@@ -162,7 +162,7 @@ export default function Dashboard(props) {
                 colorBrightness="secondary"
                 className={classes.progressSectionTitle}
               >
-                Integration
+                Water Level Sensor
               </Typography>
               <LinearProgress
                 variant="determinate"
@@ -178,7 +178,7 @@ export default function Dashboard(props) {
                 colorBrightness="secondary"
                 className={classes.progressSectionTitle}
               >
-                SDK
+                Flow Meter
               </Typography>
               <LinearProgress
                 variant="determinate"
@@ -191,7 +191,7 @@ export default function Dashboard(props) {
         </Grid>
         <Grid item lg={3} md={8} sm={6} xs={12}>
           <Widget
-            title="Server Overview"
+            title="Reservoir Tank Data"
             upperTitle
             className={classes.card}
             bodyClass={classes.fullHeightBody}
@@ -271,7 +271,7 @@ export default function Dashboard(props) {
           </Widget>
         </Grid>
         <Grid item lg={3} md={4} sm={6} xs={12}>
-          <Widget title="Revenue Breakdown" upperTitle className={classes.card}>
+          <Widget title="Consumption" upperTitle className={classes.card}>
             <Grid container spacing={2}>
               <Grid item xs={6}>
                 <ResponsiveContainer width="100%" height={144}>
@@ -320,25 +320,25 @@ export default function Dashboard(props) {
                   color="text"
                   colorBrightness="secondary"
                 >
-                  Daily Line Chart
+                  Water Supply
                 </Typography>
                 <div className={classes.mainChartHeaderLabels}>
                   <div className={classes.mainChartHeaderLabel}>
                     <Dot color="warning" />
                     <Typography className={classes.mainChartLegentElement}>
-                      Tablet
+                      Block A
                     </Typography>
                   </div>
                   <div className={classes.mainChartHeaderLabel}>
                     <Dot color="primary" />
                     <Typography className={classes.mainChartLegentElement}>
-                      Mobile
+                      Block B
                     </Typography>
                   </div>
                   <div className={classes.mainChartHeaderLabel}>
                     <Dot color="secondary" />
                     <Typography className={classes.mainChartLegentElement}>
-                      Desktop
+                      Block C
                     </Typography>
                   </div>
                 </div>
@@ -417,7 +417,7 @@ export default function Dashboard(props) {
         ))}
         <Grid item xs={12}>
           <Widget
-            title="Support Requests"
+            title="System Installation Request"
             upperTitle
             noBodyPadding
             bodyClass={classes.tableWidget}

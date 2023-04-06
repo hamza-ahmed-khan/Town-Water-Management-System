@@ -10,6 +10,7 @@ import {
   QuestionAnswer as SupportIcon,
   LibraryBooks as LibraryIcon,
   HelpOutline as FAQIcon,
+  ControlCamera as ControlCenter,
   ArrowBack as ArrowBackIcon,
   AccessAlarm as AlarmIcon,
   DesktopMac as LivemonitorIcon,
@@ -50,25 +51,30 @@ const structure = [
     link: "/app/typography",
     icon: <MapIcon />,
   },
-  { id: 3, label: "Bill Generation", 
+  
+  { id: 3, label: "Control Center", 
+  link: "/app/ControlCenter", 
+  icon: <ControlCenter /> },
+
+  { id: 4, label: "Bill Generation", 
   link: "/app/tables", 
   icon: <BillIcon /> },
   {
-    id: 4,
+    id: 5,
     label: "Alarm",
     link: "/app/notifications",
     icon: <AlarmIcon />,
-  },{id:5,
+  },{id:6,
     label:"Live Monitoring",
     icon: <LivemonitorIcon/>
   },
   {
-    id:6,
+    id:7,
     label: "Setting",
     icon: <SettingIcon/>
   },
   {
-    id: 7,
+    id: 8,
     label: "UI Elements",
     link: "/app/ui",
     icon: <UIElementsIcon />,
@@ -78,7 +84,7 @@ const structure = [
       { label: "Maps", link: "/app/ui/maps" },
     ],
   },
-  { id: 6, type: "divider" },
+  { id: 9, type: "divider" },
 ];
 
 function Sidebar({ location }) {

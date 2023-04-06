@@ -19,7 +19,7 @@ export default function BigStat(props) {
   var theme = useTheme();
 
   // local
-  var [value, setValue] = useState("daily");
+  var [value, setValue] = useState("monthly");
 
   return (
     <Widget
@@ -77,7 +77,7 @@ export default function BigStat(props) {
             />
           </Grid>
           <Typography size="sm" color="text" colorBrightness="secondary">
-            Registrations
+            New Registrations
           </Typography>
         </div>
         <div className={classes.statCell}>
@@ -90,7 +90,7 @@ export default function BigStat(props) {
             />
           </Grid>
           <Typography size="sm" color="text" colorBrightness="secondary">
-            Bounce Rate
+            Consumption Rate
           </Typography>
         </div>
         <div className={classnames(classes.statCell, classes.borderRight)}>
@@ -105,7 +105,7 @@ export default function BigStat(props) {
             />
           </Grid>
           <Typography size="sm" color="text" colorBrightness="secondary">
-            Views
+            Active Devices
           </Typography>
         </div>
       </div>
