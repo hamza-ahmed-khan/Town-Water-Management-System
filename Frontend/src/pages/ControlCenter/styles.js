@@ -69,7 +69,7 @@ export default makeStyles(theme => ({
   progress: {
     visibility: "hidden",
   },
-  notification: {
+  Button: {
     display: "flex",
     alignItems: "center",
     background: "transparent",

@@ -1,32 +1,30 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 
-const WaterFlowControl = () => {
-  const [isOpen, setOpen] = React.useState(false);
+function WaterFlowControl() {
+  const [isFlowing, setIsFlowing] = useState(false);
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
+  const handleToggleFlow = async () => {
+    try {
+      const response = await fetch('/api/water-flow-control', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ isFlowing: !isFlowing })
+      });
+      if (response.ok) {
+        setIsFlowing(!isFlowing);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open</Button>
-      <Button onClick={handleClose}>Close</Button>
-
-      {isOpen && <div>Content</div>}
+      <button onClick={handleToggleFlow}>{isFlowing ? 'OFF' : 'ON'}</button>
     </div>
   );
-};
-
-const Button = ({ onClick, children }) => {
-  return (
-    <button type="button" onClick={onClick}>
-      {children}
-    </button>
-  );
-};
+}
 
 export default WaterFlowControl;
