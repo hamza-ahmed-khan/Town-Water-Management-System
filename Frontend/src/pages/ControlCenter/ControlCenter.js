@@ -1,30 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { render } from 'react-dom';
+import axios from 'axios';
 
-function WaterFlowControl() {
-  const [isFlowing, setIsFlowing] = useState(false);
+export default function WaterFlowControl() {
+  const [isFlowing, setIsFlowing] = useState(true);
 
-  const handleToggleFlow = async () => {
-    try {
-      const response = await fetch('/api/water-flow-control', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ isFlowing: !isFlowing })
-      });
-      if (response.ok) {
-        setIsFlowing(!isFlowing);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/ValveStatus?isFlowing=${isFlowing}`);
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
-    }
+    };
+
+    fetchData();
+  }, [isFlowing]);
+  
+  const toggleWaterFlow = () => {
+    setIsFlowing(prevState => !prevState);
   };
 
   return (
     <div>
-      <button onClick={handleToggleFlow}>{isFlowing ? 'OFF' : 'ON'}</button>
+      <button onClick={toggleWaterFlow}>{isFlowing ? 'OFF' : 'ON'}</button>
     </div>
   );
-}
-
-export default WaterFlowControl;
+};

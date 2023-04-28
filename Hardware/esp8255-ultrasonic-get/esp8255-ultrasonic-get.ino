@@ -16,14 +16,22 @@ volatile long pulse;
 unsigned long lastTime;
 
 float volume;
+
+//SOLENOIDE
+int relaypin = D8;
+char isFlowing = false;
+
 //===================SENSOR====================
 
-char ssid[] = "iPhone 7plus";
-char password[] = "hamzaahmed";
+char ssid[] = "FAISAL_NET";
+char password[] = "classicmedicos";
 
 //Your Domain name with URL path or IP address with path
 String serverName = "http://172.20.10.3:5000/distance";
 String Station_Id = "3";
+
+//VALVE STATUS DOMAIN
+String ValveServer = "http://172.20.10.3:5000/ValveStatus";
 
 
 void setup() {
@@ -35,6 +43,8 @@ void setup() {
   pinMode(sensorPin, INPUT);
   Serial.begin(9600);
   attachInterrupt(digitalPinToInterrupt(sensorPin), increase, RISING);
+  //========SOlenoid==============
+  pinMode(relaypin,OUTPUT);
   //============//
   Serial.begin(115200);
   WiFi.begin(ssid, password);
@@ -52,7 +62,31 @@ void setup() {
 
 void loop() {
     //Check WiFi connection status
-    if(WiFi.status()== WL_CONNECTED){
+    if (WiFi.status() == WL_CONNECTED) {
+    WiFiClient client;
+    // Connect to Flask server
+    if (client.connect("192.168.1.112", 5000)) {
+
+      // Send a GET request to Flask server
+      client.print("GET http://192.168.1.112:5000/espvalve");
+
+      // Read the response from Flask server
+      while (client.connected()) {
+        String line = client.readStringUntil('\n');
+        Serial.println(line);
+        if (line == "\r") {
+          Serial.println("Response:");
+          String responseBody = client.readString();
+          Serial.println(responseBody);
+          break;
+        }
+      }
+      while (client.available()) {
+        char c = client.read();
+ 
+        isFlowing = c;
+        Serial.print(isFlowing);
+      }
 
      //===================SENSOR==================== 
     // Clears the trigPin
@@ -78,6 +112,27 @@ void loop() {
       }
       Serial.print(volume);
       Serial.println(" L/m");
+    }
+    
+      
+
+      Serial.println();
+      digitalWrite(LED_BUILTIN, HIGH);
+      delay(1000);
+      digitalWrite(LED_BUILTIN, LOW);
+      delay(1000);
+    }
+    else {
+      Serial.println("Connection failed");
+    }
+  
+
+
+    //========Solenoid==============
+    if (isFlowing == false) {
+      digitalWrite(relaypin, LOW);
+    } else {
+      digitalWrite(relaypin, HIGH);
     }
 
 
