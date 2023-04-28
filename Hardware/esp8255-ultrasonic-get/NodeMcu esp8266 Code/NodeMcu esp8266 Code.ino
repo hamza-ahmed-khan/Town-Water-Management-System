@@ -28,11 +28,11 @@ float volume;
 char isFlowing = false;
 
 //Your Domain name with URL path or IP address with path
-String serverName = "http://172.20.10.3:5000/distance";
+String serverName = "http://hamza19b.pythonanywhere.com/distance";
 String Station_Id = "3";
 
 //VALVE STATUS DOMAIN
-String ValveServer = "http://172.20.10.3:5000/ValveStatus";
+String ValveServer = "http://hamza19b.pythonanywhere.com/ValveStatus";
 
 
 void setup() {
@@ -86,10 +86,10 @@ void loop() {
     WiFiClient client;
 
     // Connect to Flask server
-    if (client.connect("192.168.1.112", 5000)) {
+    if (client.connect("http://hamza19b.pythonanywhere.com", 5000)) {
 
       // Send a GET request to Flask server
-      client.println("GET http://192.168.1.112:5000/espvalve");
+      client.println("GET http://hamza19b.pythonanywhere.com/espvalve");
       client.println(" HTTP/1.1");
       client.println("Host: your_flask_server_IP_address");
       client.println("Connection: close");
