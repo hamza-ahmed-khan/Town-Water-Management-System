@@ -7,7 +7,7 @@ export default function WaterFlowControl() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://hamza19b.pythonanywhere.com/ValveStatus?isFlowing=${isFlowing}`);
+        const response = await axios.get(`https://hamza19b.pythonanywhere.com/ValveStatus?isFlowing=${isFlowing}`);
         console.log(response.data);
       } catch (error) {
         console.error(error);
