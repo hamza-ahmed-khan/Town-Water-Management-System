@@ -28,29 +28,36 @@ distance = [
 ]
 
     
+@app.route('/PumpStatus')
+def PumpStatus():
+    b_data = request.args.get('isMotorOn')
+    query2 = {'_id':2}
+    updt2 = {"$set" : {'_id':2,'block water flowing':b_data}}
+    valve_data_collection.update_one(query2,updt2)
+    y = valve_data_collection.find_one(query2)
+    print(y)
+    return "Pump Perfectly Running"
+
+@app.route('/HouseValveStatus')
+def HouseValveStatus():
+    v2_data = request.args.get('isFlowinghouse')
+    query3 = {'_id':3}
+    updt3 = {"$set" : {'_id':3,'water flowing house':v2_data}}
+    valve_data_collection.update_one(query3,updt3)
+    z = valve_data_collection.find_one(query3)
+    print(z)
+    return "House 2 Process Perfectly going"
 
 
 @app.route('/ValveStatus')
 def ValveStatus():
     v_data = request.args.get('isFlowing')
-    b_data = request.args.get('isMotorOn')
-    v2_data = request.args.get('isFlowinghouse')
     query = {'_id':1}
-    query2 = {'_id':2}
-    query3 = {'_id':3}
     updt = {"$set" : {'_id':1,'water flowing':v_data}}
-    updt2 = {"$set" : {'_id':2,'block water flowing':b_data}}
-    updt3 = {"$set" : {'_id':3,'water flowing house':v2_data}}
     valve_data_collection.update_one(query,updt)
-    valve_data_collection.update_one(query2,updt2)
-    valve_data_collection.update_one(query3,updt3)
     x = valve_data_collection.find_one(query)
-    y = valve_data_collection.find_one(query2)
-    z = valve_data_collection.find_one(query3)
     print(x)
-    print(y)
-    print(z)
-    return "Process Perfectly going"
+    return "House 1 Process Perfectly going"
 
 @app.route('/espvalve')
 def getvalve():
@@ -64,7 +71,6 @@ def getvalve():
 @app.route('/espvalvehouse')
 def getvalvehhouse():
     b = valve_data_collection.find( { "_id": 3 } )
-    print(b)
     for x in b :
         print(x)
         if x["water flowing house"] == 'false':
@@ -74,8 +80,9 @@ def getvalvehhouse():
 
 @app.route('/blockespvalve')
 def getblockvalve():
-    a = valve_data_collection.find( { "_id": 2 } )
-    for x in a :
+    c = valve_data_collection.find( { "_id": 2 } )
+    for x in c :
+        print(x)
         if x["block water flowing"] == 'false':
             return jsonify(x)
         else:
@@ -94,8 +101,19 @@ def get_distance():
     query = {'_id':Station_id}
     updt = {"$set" : {'_id':Station_id,'distance':distance_reading,'flowrate':flowrate_reading}}
     sensor_data_collection.update_one(query,updt)
-    print(flowrate_reading)
-    return 'Successful'
+    return {'House ID' : Station_id, 'Tank distance':distance_reading,'flowrate':flowrate_reading}
+
+@app.route('/Ahousedist')
+def get_house_dist():
+    Station_id = 1
+    distance_reading = request.args.get('distance')
+    flowrate_reading = request.args.get('flowrate')
+    query = {'_id':Station_id}
+    updt = {"$set" : {'_id':Station_id,'distance':distance_reading,'flowrate':flowrate_reading}}
+    sensor_data_collection.update_one(query,updt)
+    return {'House ID' : Station_id, 'Tank distance':distance_reading,'flowrate':flowrate_reading}
+
+    
 
 @app.route('/distance', methods=['POST'])
 def add_distance():

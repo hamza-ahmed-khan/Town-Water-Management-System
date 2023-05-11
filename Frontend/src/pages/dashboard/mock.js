@@ -2,28 +2,18 @@ const mock = {
   tasks: [
     {
       id: 0,
-      type: "Meeting",
-      title: "Meeting with Andrew Piker",
-      time: "9:00"
+      type: "Mantainance",
+      title: "Ultrasonic Sensor Issue",
+      time: "9:00",
+      Address:"72-B"
     },
     {
       id: 1,
-      type: "Call",
-      title: "Call with HT Company",
-      time: "12:00"
+      type: "Installation",
+      title: "NodeMCU wifi module",
+      time: "12:00",
+      Address:"72-A"
     },
-    {
-      id: 2,
-      type: "Meeting",
-      title: "Meeting with Zoe Alison",
-      time: "14:00"
-    },
-    {
-      id: 3,
-      type: "Interview",
-      title: "Interview with HR",
-      time: "15:00"
-    }
   ],
   bigStat: [
     {
@@ -130,54 +120,35 @@ const mock = {
   table: [
     {
       id: 0,
-      name: "Mark Otto",
-      email: "ottoto@wxample.com",
-      product: "ON the Road",
-      price: "$25 224.2",
-      date: "11 May 2017",
-      city: "Otsego",
+      name: "Hamza Ahmed Khan",
+      email: "hamza@gmail.com",
+      address: "95-G",
+      block: "B",
+      date: "19 May 2023",
+      bill:"1600",
       status: "Sent"
     },
     {
       id: 1,
-      name: "Jacob Thornton",
-      email: "thornton@wxample.com",
-      product: "HP Core i7",
-      price: "$1 254.2",
-      date: "4 Jun 2017",
-      city: "Fivepointville",
-      status: "Sent"
-    },
-    {
-      id: 2,
-      name: "Larry the Bird",
-      email: "bird@wxample.com",
-      product: "Air Pro",
-      price: "$1 570.0",
-      date: "27 Aug 2017",
-      city: "Leadville North",
+      name: "Hamza Qadri",
+      email: "qadri154@gmail.com",
+      address: "73-C",
+      block: "A",
+      date: "14 May 2023",
+      bill:"1200",
       status: "Pending"
     },
     {
       id: 3,
-      name: "Joseph May",
-      email: "josephmay@wxample.com",
-      product: "Version Control",
-      price: "$5 224.5",
-      date: "19 Feb 2018",
-      city: "Seaforth",
-      status: "Declined"
-    },
-    {
-      id: 4,
-      name: "Peter Horadnia",
-      email: "horadnia@wxample.com",
-      product: "Let's Dance",
-      price: "$43 594.7",
-      date: "1 Mar 2018",
-      city: "Hanoverton",
-      status: "Sent"
+      name: "Aneeqa Fahim",
+      email: "anfahim@gmail.com",
+      address: "72-B",
+      block: "A",
+      date: "04 Jun 2023",
+      bill:"1100",
+      status: "Not Sent"
     }
+    
   ]
 };
 
