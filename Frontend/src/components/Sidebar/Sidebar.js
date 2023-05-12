@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Drawer, IconButton, List } from "@material-ui/core";
 import {
-  Home as HomeIcon,
   Dashboard as DashboardIcon,
-  FilterNone as UIElementsIcon,
   ControlCamera as ControlCenter,
   ArrowBack as ArrowBackIcon,
-  AccessAlarm as AlarmIcon,
-  DesktopMac as LivemonitorIcon,
+  TrackChanges as TrackIcon,
   Map as MapIcon,
   Receipt as BillIcon,
-  Settings as SettingIcon,
 } from "@material-ui/icons";
 import { useTheme } from "@material-ui/styles";
 import { withRouter } from "react-router-dom";
@@ -29,18 +25,14 @@ import {
 } from "../../context/LayoutContext";
 
 const structure = [
-  {
-    id:0,
-    label:"Home",
-    icon:<HomeIcon/>
-  },
+  { id: 10, type: "divider" },
   { id: 1, label: "Dashboard",
    link: "/app/dashboard",
     icon: <DashboardIcon /> },
   {
     id: 2,
     label: "Town Map",
-    link: "/app/typography",
+    link: "/app/ui/maps",
     icon: <MapIcon />,
   },
   
@@ -53,28 +45,9 @@ const structure = [
   icon: <BillIcon /> },
   {
     id: 5,
-    label: "Alarm",
+    label: "Bill Tracking",
     link: "/app/notifications",
-    icon: <AlarmIcon />,
-  },{id:6,
-    label:"Live Monitoring",
-    icon: <LivemonitorIcon/>
-  },
-  {
-    id:7,
-    label: "Setting",
-    icon: <SettingIcon/>
-  },
-  {
-    id: 8,
-    label: "UI Elements",
-    link: "/app/ui",
-    icon: <UIElementsIcon />,
-    children: [
-      { label: "Icons", link: "/app/ui/icons" },
-      { label: "Charts", link: "/app/ui/charts" },
-      { label: "Maps", link: "/app/ui/maps" },
-    ],
+    icon: <TrackIcon />,
   },
   { id: 9, type: "divider" },
 ];

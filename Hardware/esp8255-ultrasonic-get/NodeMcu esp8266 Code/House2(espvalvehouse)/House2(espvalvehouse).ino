@@ -26,8 +26,8 @@ float volume;
 
 
 //Your Domain name with URL path or IP address with path
-String serverName = "https://twmsdeploy.azurewebsites.net/distance";
-String Station_Id = "2";
+String serverName = "https://twmsdeploy.azurewebsites.net/Ahousedist";
+String Station_Id = "1";
 
 //VALVE STATUS DOMAIN
 String ValveServer = "https://twmsdeploy.azurewebsites.net/ValveStatus";
@@ -114,7 +114,7 @@ void loop() {
     if (client.connect("172.20.10.2", 5000)) {
 
       // Send a GET request to Flask server
-      client.println("GET https://twmsdeploy.azurewebsites.net/blockespvalve");
+      client.println("GET https://twmsdeploy.azurewebsites.net/espvalehouse");
       client.println(" HTTP/1.1");
       client.println("Host: your_flask_server_IP_address");
       client.println("Connection: close");
@@ -126,7 +126,7 @@ void loop() {
         // Parse the response body as JSON and extract the value of "water flowing"
         DynamicJsonDocument doc(1024);
         deserializeJson(doc, responseBody);
-        isFlowing = doc["block water flowing"].as<const char*>();
+        isFlowing = doc["water flowing house"].as<const char*>();
         Serial.println("RESPONSE: "+ isFlowing);
       }
       if (isFlowing == "false"){
