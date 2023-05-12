@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 // styles
-import useStyles from "./styles";
 import {
   Grid,
-  LinearProgress,
-  Select,
-  OutlinedInput,
-  MenuItem,
   Button,
 } from "@material-ui/core";
 import Widget from "../../components/Widget";

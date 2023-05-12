@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Drawer, IconButton, List } from "@material-ui/core";
 import {
-  Home as HomeIcon,
   Dashboard as DashboardIcon,
-  FilterNone as UIElementsIcon,
   ControlCamera as ControlCenter,
   ArrowBack as ArrowBackIcon,
   TrackChanges as TrackIcon,
-  DesktopMac as LivemonitorIcon,
   Map as MapIcon,
   Receipt as BillIcon,
-  Settings as SettingIcon,
 } from "@material-ui/icons";
 import { useTheme } from "@material-ui/styles";
 import { withRouter } from "react-router-dom";
