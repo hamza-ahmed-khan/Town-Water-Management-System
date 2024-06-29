@@ -26,11 +26,11 @@ float volume;
 
 
 //Your Domain name with URL path or IP address with path
-String serverName = "https://twmsdeploy.azurewebsites.net/Ahousedist";
+String serverName = "http://172.20.10.2:5000/Ahousedist";
 String Station_Id = "1";
 
 //VALVE STATUS DOMAIN
-String ValveServer = "https://twmsdeploy.azurewebsites.net/ValveStatus";
+String ValveServer = "http://172.20.10.2:5000/HouseValveStatus";
 
 // Function declarations
 ICACHE_RAM_ATTR void increase() {
@@ -55,6 +55,8 @@ void setup() {
   }
 
   Serial.println("");
+  WiFi.setAutoReconnect(true);
+  WiFi.persistent(true);
   Serial.println("WiFi connected");
   
   //===================SENSOR====================
@@ -114,7 +116,7 @@ void loop() {
     if (client.connect("172.20.10.2", 5000)) {
 
       // Send a GET request to Flask server
-      client.println("GET https://twmsdeploy.azurewebsites.net/espvalehouse");
+      client.println("GET http://172.20.10.2:5000/espvalvehouse");
       client.println(" HTTP/1.1");
       client.println("Host: your_flask_server_IP_address");
       client.println("Connection: close");
@@ -129,7 +131,7 @@ void loop() {
         isFlowing = doc["water flowing house"].as<const char*>();
         Serial.println("RESPONSE: "+ isFlowing);
       }
-      if (isFlowing == "false"){
+      if (isFlowing == "false" || distance<= 2.5){
         Serial.println("RELAY IS GOING HIGH");
         digitalWrite(relaypin, HIGH);
       } else {

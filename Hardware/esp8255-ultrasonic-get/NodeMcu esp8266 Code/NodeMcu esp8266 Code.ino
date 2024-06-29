@@ -26,11 +26,11 @@ float volume;
 
 
 //Your Domain name with URL path or IP address with path
-String serverName = "https://twmsdeploy.azurewebsites.net/distance";
+String serverName = "http://172.20.10.2:5000/distance";
 String Station_Id = "2";
 
 //VALVE STATUS DOMAIN
-String ValveServer = "https://twmsdeploy.azurewebsites.net/ValveStatus";
+String ValveServer = "http://172.20.10.2:5000/PumpStatus";
 
 // Function declarations
 ICACHE_RAM_ATTR void increase() {
@@ -114,7 +114,7 @@ void loop() {
     if (client.connect("172.20.10.2", 5000)) {
 
       // Send a GET request to Flask server
-      client.println("GET https://twmsdeploy.azurewebsites.net/blockespvalve");
+      client.println("GET http://172.20.10.2:5000/blockespvalve");
       client.println(" HTTP/1.1");
       client.println("Host: your_flask_server_IP_address");
       client.println("Connection: close");
