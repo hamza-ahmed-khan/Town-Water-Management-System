@@ -11,7 +11,7 @@ const Receipt = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('/receipt')
+    fetch('https://backend-eta-neon.vercel.app/receipt')
       .then((response) => response.json())
       .then((data) => {
         setReceiptData(data);
