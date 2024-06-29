@@ -20,11 +20,11 @@ float volume;
 
 //===================SENSOR====================
 
-char ssid[] = "FAISAL_NET";
-char password[] = "classicmedicos";
+char ssid[] = "BTW";
+char password[] = "bilal1998";
 
 //Your Domain name with URL path or IP address with path
-String serverName = "http://192.168.1.112:5000/distance";
+String serverName = "http://192.168.100.86:5000/distance";
 String Station_Id = "3";
 
 void setup() {

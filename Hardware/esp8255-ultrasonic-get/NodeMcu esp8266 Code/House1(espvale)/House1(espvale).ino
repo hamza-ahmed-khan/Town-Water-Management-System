@@ -26,11 +26,11 @@ float volume;
 
 
 //Your Domain name with URL path or IP address with path
-String serverName = "https://twmsdeploy.azurewebsites.net/distance";
+String serverName = "http://172.20.10.2:5000/distance";
 String Station_Id = "0";
 
 //VALVE STATUS DOMAIN
-String ValveServer = "https://twmsdeploy.azurewebsites.net/ValveStatus";
+String ValveServer = "http://172.20.10.2:5000/ValveStatus";
 
 // Function declarations
 ICACHE_RAM_ATTR void increase() {
@@ -38,7 +38,7 @@ ICACHE_RAM_ATTR void increase() {
 }
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(relaypin,OUTPUT);
 
@@ -55,6 +55,8 @@ void setup() {
   }
 
   Serial.println("");
+  WiFi.setAutoReconnect(true);
+  WiFi.persistent(true);
   Serial.println("WiFi connected");
   
   //===================SENSOR====================
@@ -114,7 +116,7 @@ void loop() {
     if (client.connect("172.20.10.2", 5000)) {
 
       // Send a GET request to Flask server
-      client.println("GET https://twmsdeploy.azurewebsites.net/espvalve");
+      client.println("GET http://172.20.10.2:5000/espvalve");
       client.println(" HTTP/1.1");
       client.println("Host: your_flask_server_IP_address");
       client.println("Connection: close");

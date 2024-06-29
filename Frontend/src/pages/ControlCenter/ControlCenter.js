@@ -17,7 +17,7 @@ export default function WaterFlowControl() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://twmsdeploy.azurewebsites.net/ValveStatus?isFlowing=${isFlowing}`,
+          `https://backend-eta-neon-vercel.app//ValveStatus?isFlowing=${isFlowing}`,
         );
         console.log(response.data);
       } catch (error) {
@@ -35,7 +35,7 @@ export default function WaterFlowControl() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://twmsdeploy.azurewebsites.net/HouseValveStatus?isFlowinghouse=${isFlowinghouse}`,
+          `https://backend-eta-neon-vercel.app/HouseValveStatus?isFlowinghouse=${isFlowinghouse}`,
         );
         console.log(response.data);
       } catch (error) {
@@ -53,7 +53,7 @@ export default function WaterFlowControl() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://twmsdeploy.azurewebsites.net/PumpStatus?isMotorOn=${isMotorOn}`,
+          `https://backend-eta-neon-vercel.app/PumpStatus?isMotorOn=${isMotorOn}`,
         );
         console.log(response.data);
       } catch (error) {
