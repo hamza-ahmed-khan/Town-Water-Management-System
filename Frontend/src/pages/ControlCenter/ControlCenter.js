@@ -17,7 +17,7 @@ export default function WaterFlowControl() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://backend-eta-neon.vercel.app//ValveStatus?isFlowing=${isFlowing}`,
+          `https://backend-eta-neon.vercel.app/ValveStatus?isFlowing=${isFlowing}`,
         );
         console.log(response.data);
       } catch (error) {
@@ -173,6 +173,48 @@ export default function WaterFlowControl() {
             </Grid>
           </Widget>
         </Grid>
+
+        <Grid item lg={4} md={8} sm={12} xs={12}>
+          <Widget title="House Number 5">
+            <Grid container item alignItems={"center"}>
+              <Grid item xs={6}>
+                <h3 style={{ textAlign: "center" }}>Valve Status</h3>
+              </Grid>
+              <Grid item xs={6}>
+                <Button
+                  onClick={toggleWaterFlowhouse}
+                  variant="contained"
+                  size="small"
+                  color="primary"
+                >
+                  {isFlowinghouse ? "OFF" : "ON"}
+                </Button>
+              </Grid>
+            </Grid>
+          </Widget>
+        </Grid>
+
+        <Grid item lg={4} md={8} sm={12} xs={12}>
+          <Widget title="House Number 6">
+            <Grid container item alignItems={"center"}>
+              <Grid item xs={6}>
+                <h3 style={{ textAlign: "center" }}>Valve Status</h3>
+              </Grid>
+              <Grid item xs={6}>
+                <Button
+                  onClick={toggleWaterFlowhouse}
+                  variant="contained"
+                  size="small"
+                  color="primary"
+                >
+                  {isFlowinghouse ? "OFF" : "ON"}
+                </Button>
+              </Grid>
+            </Grid>
+          </Widget>
+        </Grid>
+
+
       </Grid>
       </div>
       <div>
@@ -277,6 +319,45 @@ export default function WaterFlowControl() {
             </Grid>
           </Widget>
         </Grid>
+        <Grid item lg={4} md={8} sm={12} xs={12}>
+          <Widget title="House Number 5">
+            <Grid container item alignItems={"center"}>
+              <Grid item xs={6}>
+                <h3 style={{ textAlign: "center" }}>Valve Status</h3>
+              </Grid>
+              <Grid item xs={6}>
+                <Button
+                  onClick={toggleWaterFlowhouse}
+                  variant="contained"
+                  size="small"
+                  color="primary"
+                >
+                  {isFlowinghouse ? "OFF" : "ON"}
+                </Button>
+              </Grid>
+            </Grid>
+          </Widget>
+        </Grid>
+
+        <Grid item lg={4} md={8} sm={12} xs={12}>
+          <Widget title="House Number 6">
+            <Grid container item alignItems={"center"}>
+              <Grid item xs={6}>
+                <h3 style={{ textAlign: "center" }}>Valve Status</h3>
+              </Grid>
+              <Grid item xs={6}>
+                <Button
+                  onClick={toggleWaterFlowhouse}
+                  variant="contained"
+                  size="small"
+                  color="primary"
+                >
+                  {isFlowinghouse ? "OFF" : "ON"}
+                </Button>
+              </Grid>
+            </Grid>
+          </Widget>
+        </Grid>
       </Grid>
       </div>
       <div>
@@ -364,6 +445,45 @@ export default function WaterFlowControl() {
 
         <Grid item lg={4} md={8} sm={12} xs={12}>
           <Widget title="House Number 4">
+            <Grid container item alignItems={"center"}>
+              <Grid item xs={6}>
+                <h3 style={{ textAlign: "center" }}>Valve Status</h3>
+              </Grid>
+              <Grid item xs={6}>
+                <Button
+                  onClick={toggleWaterFlowhouse}
+                  variant="contained"
+                  size="small"
+                  color="primary"
+                >
+                  {isFlowinghouse ? "OFF" : "ON"}
+                </Button>
+              </Grid>
+            </Grid>
+          </Widget>
+        </Grid>
+        <Grid item lg={4} md={8} sm={12} xs={12}>
+          <Widget title="House Number 5">
+            <Grid container item alignItems={"center"}>
+              <Grid item xs={6}>
+                <h3 style={{ textAlign: "center" }}>Valve Status</h3>
+              </Grid>
+              <Grid item xs={6}>
+                <Button
+                  onClick={toggleWaterFlowhouse}
+                  variant="contained"
+                  size="small"
+                  color="primary"
+                >
+                  {isFlowinghouse ? "OFF" : "ON"}
+                </Button>
+              </Grid>
+            </Grid>
+          </Widget>
+        </Grid>
+
+        <Grid item lg={4} md={8} sm={12} xs={12}>
+          <Widget title="House Number 6">
             <Grid container item alignItems={"center"}>
               <Grid item xs={6}>
                 <h3 style={{ textAlign: "center" }}>Valve Status</h3>
