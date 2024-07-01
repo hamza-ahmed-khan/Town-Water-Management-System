@@ -17,7 +17,7 @@ export default function WaterFlowControl() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://backend-eta-neon.vercel.app//ValveStatus?isFlowing=${isFlowing}`,
+          `https://backend-eta-neon.vercel.app/ValveStatus?isFlowing=${isFlowing}`,
         );
         console.log(response.data);
       } catch (error) {
